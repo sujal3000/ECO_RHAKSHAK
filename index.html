@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="#123d35" name="theme-color"/>
+  <meta content="EcoRakshak helps communities report water wastage and waste-management issues." name="description"/>
+  <title>
+   EcoRakshak | Water &amp; Waste Management
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body>
+  <header class="topbar">
+   <a aria-label="EcoRakshak home" class="brand" href="#home">
+    <span class="brand-mark">
+     ♻
+    </span>
+    <span>
+     EcoRakshak
+     <small>
+      WATER &bull; WASTE &bull; BETTER TOMORROW
+     </small>
+    </span>
+   </a>
+   <nav class="desktop-nav" id="desktop-nav">
+    <button class="nav-link active" data-tab="home">
+     Overview
+    </button>
+    <button class="nav-link" data-tab="report">
+     Report an issue
+    </button>
+    <button class="nav-link" data-tab="tracker">
+     Track reports
+    </button>
+    <button class="nav-link" data-tab="locations">
+     Locations
+    </button>
+    <button class="nav-link" data-tab="admin">
+     Admin
+    </button>
+   </nav>
+   <button aria-label="Open menu" class="mobile-menu" id="menuBtn">
+    ☰
+   </button>
+  </header>
+  <main class="shell">
+   <section class="page" id="tab-home">
+    <div class="hero">
+     <div class="hero-copy">
+      <span class="eyebrow">
+       COMMUNITY ACTION &bull; CLEANER CITIES
+      </span>
+      <h1>
+       Protect every drop.
+       <br/>
+       <em>
+        Respect every resource.
+       </em>
+      </h1>
+      <p>
+       One place to report water leakage, water wastage, garbage overflow and other neighbourhood waste issues.
+      </p>
+      <div class="hero-actions">
+       <button class="btn primary" data-go="report">
+        ＋ Report an issue
+       </button>
+       <button class="btn ghost" data-go="tracker">
+        Track a complaint &nearrow;
+       </button>
+      </div>
+      <div class="hero-note">
+       Small reports. Real change. Stronger communities.
+      </div>
+     </div>
+     <div class="hero-art">
+      <div class="art-circle">
+       <div class="drop">
+        💧
+       </div>
+       <div class="leaf">
+        🌿
+       </div>
+       <div class="recycle">
+        ♻️
+       </div>
+      </div>
+      <div class="art-tag tag-one">
+       Save water
+      </div>
+      <div class="art-tag tag-two">
+       Sort waste
+      </div>
+     </div>
+    </div>
+    <div class="section-heading">
+     <div>
+      <span class="eyebrow">
+       LIVE COMMUNITY BOARD
+      </span>
+      <h2>
+       Our impact at a glance
+      </h2>
+     </div>
+     <span class="small-note">
+      Counts update from reports saved in this browser
+     </span>
+    </div>
+    <div class="stats-grid">
+     <article class="stat-card">
+      <span class="stat-icon water">
+       💧
+      </span>
+      <div>
+       <strong id="homeWater">
+        0
+       </strong>
+       <span>
+        Water reports
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon waste">
+       ♻️
+      </span>
+      <div>
+       <strong id="homeWaste">
+        0
+       </strong>
+       <span>
+        Waste reports
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon open">
+       📍
+      </span>
+      <div>
+       <strong id="homeOpen">
+        0
+       </strong>
+       <span>
+        Issues needing action
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon done">
+       &checkmark;
+      </span>
+      <div>
+       <strong id="homeResolved">
+        0
+       </strong>
+       <span>
+        Resolved reports
+       </span>
+      </div>
+     </article>
+    </div>
+    <div class="two-panels">
+     <article class="panel split-panel">
+      <div>
+       <span class="pill blue-pill">
+        💧 WATER CONSERVATION
+       </span>
+       <h3>
+        Every drop counts
+       </h3>
+       <p>
+        Report leaking pipelines, overflowing tanks, broken public taps and polluted water sources.
+       </p>
+       <button class="text-button" data-go="report" data-kind="Water">
+        Report a water issue &rarr;
+       </button>
+      </div>
+      <div class="panel-emoji">
+       🚰
+      </div>
+     </article>
+     <article class="panel split-panel">
+      <div>
+       <span class="pill green-pill">
+        ♻️ WASTE MANAGEMENT
+       </span>
+       <h3>
+        Keep our spaces clean
+       </h3>
+       <p>
+        Report garbage overflow, plastic dumping, blocked drains and improper waste disposal.
+       </p>
+       <button class="text-button green-text" data-go="report" data-kind="Waste">
+        Report a waste issue &rarr;
+       </button>
+      </div>
+      <div class="panel-emoji">
+       🗑️
+      </div>
+     </article>
+    </div>
+    <div class="section-heading recent-heading">
+     <div>
+      <span class="eyebrow">
+       LATEST ACTIVITY
+      </span>
+      <h2>
+       Recent community reports
+      </h2>
+     </div>
+     <button class="text-button" data-go="tracker">
+      View all reports &rarr;
+     </button>
+    </div>
+    <div class="recent-list" id="homeRecent">
+    </div>
+    <div class="notice">
+     <span>
+      ℹ️
+     </span>
+     <p>
+      <b>
+       Project demonstration:
+      </b>
+      Sample reports are labelled as demo data. Reports you submit are stored only in this browser until a shared server/database is connected.
+     </p>
+    </div>
+   </section>
+   <section class="page hidden" id="tab-report">
+    <div class="page-title">
+     <span class="eyebrow">
+      RAISE YOUR VOICE
+     </span>
+     <h1>
+      Report a local issue
+     </h1>
+     <p>
+      Choose the issue type and share its location. Your report will receive a tracking ID.
+     </p>
+    </div>
+    <div class="form-layout">
+     <form class="panel form-panel" id="reportForm">
+      <div class="field">
+       <label>
+        What would you like to report?
+       </label>
+       <div class="type-switch">
+        <label class="type-option selected" id="waterOption">
+         <input checked="" name="issueType" type="radio" value="Water"/>
+         <span>
+          💧
+         </span>
+         <b>
+          Water issue
+         </b>
+         <small>
+          Leakage &amp; conservation
+         </small>
+        </label>
+        <label class="type-option" id="wasteOption">
+         <input name="issueType" type="radio" value="Waste"/>
+         <span>
+          ♻️
+         </span>
+         <b>
+          Waste issue
+         </b>
+         <small>
+          Garbage &amp; cleanliness
+         </small>
+        </label>
+       </div>
+      </div>
+      <div class="form-grid">
+       <div class="field">
+        <label for="city">
+         Municipal area
+        </label>
+        <select id="city" required="">
+         <option value="KDMC">
+          Kalyan-Dombivli (KDMC)
+         </option>
+         <option value="BMC">
+          Mumbai (BMC)
+         </option>
+         <option value="TMC">
+          Thane (TMC)
+         </option>
+         <option value="OTHER">
+          Other municipal area
+         </option>
+        </select>
+       </div>
+       <div class="field">
+        <label for="category">
+         Issue category
+        </label>
+        <select id="category" required="">
+        </select>
+       </div>
+      </div>
+      <div class="helpline-box" id="helplineDisplay">
+      </div>
+      <div class="field">
+       <label for="area">
+        Exact location / landmark
+       </label>
+       <input id="area" maxlength="120" placeholder="e.g. Near station, road name, neighbourhood" required=""/>
+      </div>
+      <div class="field">
+       <label for="gpsButton">
+        Location coordinates
+        <span class="optional">
+         Optional
+        </span>
+       </label>
+       <button class="btn outline small-btn" id="gpsButton" type="button">
+        ◎ Capture my GPS location
+       </button>
+       <p class="hint" id="gpsText">
+        GPS not captured. You can submit with a landmark only.
+       </p>
+      </div>
+      <div class="field">
+       <label for="description">
+        Describe the issue
+       </label>
+       <textarea id="description" maxlength="1000" placeholder="What happened? How long has it been happening?" required="" rows="4"></textarea>
+      </div>
+      <div class="form-grid" id="waterExtra">
+       <div class="field">
+        <label for="hours">
+         Estimated leakage duration (hours)
+        </label>
+        <input id="hours" max="500" min="1" type="number" value="1"/>
+        <small class="hint">
+         Used only for an illustrative water-saving estimate.
+        </small>
+       </div>
+       <div class="field">
+        <label for="urgency">
+         Urgency
+        </label>
+        <select id="urgency">
+         <option>
+          Normal
+         </option>
+         <option>
+          Urgent
+         </option>
+         <option>
+          Emergency
+         </option>
+        </select>
+       </div>
+      </div>
+      <div class="field">
+       <label for="photo">
+        Upload a photo
+        <span class="optional">
+         Optional &bull; max 2 MB
+        </span>
+       </label>
+       <input accept="image/*" id="photo" type="file"/>
+       <img alt="Selected issue photo" class="preview hidden" id="photoPreview"/>
+      </div>
+      <button class="btn primary submit-btn" type="submit">
+       Submit report
+       <span>
+        &rarr;
+       </span>
+      </button>
+      <p class="form-foot">
+       Please do not include private or sensitive information. Avoid confronting anyone at the reported location.
+      </p>
+     </form>
+     <aside class="side-help">
+      <div class="side-card">
+       <span class="side-icon">
+        📌
+       </span>
+       <h3>
+        What happens next?
+       </h3>
+       <ol>
+        <li>
+         <b>
+          Submit
+         </b>
+         <span>
+          Your issue is recorded with a unique ID.
+         </span>
+        </li>
+        <li>
+         <b>
+          Track
+         </b>
+         <span>
+          Check the latest status in Track reports.
+         </span>
+        </li>
+        <li>
+         <b>
+          Resolve
+         </b>
+         <span>
+          Authorities or administrators can update progress.
+         </span>
+        </li>
+       </ol>
+      </div>
+      <div class="side-card green-side">
+       <span class="side-icon">
+        🌱
+       </span>
+       <h3>
+        Be a local hero
+       </h3>
+       <p>
+        Clear location details and a useful photo can help the right team understand the issue faster.
+       </p>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section class="page hidden" id="tab-tracker">
+    <div class="page-title">
+     <span class="eyebrow">
+      TRANSPARENCY &amp; FOLLOW-UP
+     </span>
+     <h1>
+      Track community reports
+     </h1>
+     <p>
+      Search by complaint ID, location or issue. Follow the status from submission to resolution.
+     </p>
+    </div>
+    <div class="panel filter-panel">
+     <input id="search" placeholder="Search ID, location or description&hellip;"/>
+     <select id="typeFilter">
+      <option value="all">
+       All issue types
+      </option>
+      <option>
+       Water
+      </option>
+      <option>
+       Waste
+      </option>
+     </select>
+     <select id="statusFilter">
+      <option value="all">
+       All statuses
+      </option>
+      <option>
+       Reported
+      </option>
+      <option>
+       In Progress
+      </option>
+      <option>
+       Resolved
+      </option>
+     </select>
+     <select id="cityFilter">
+      <option value="all">
+       All municipal areas
+      </option>
+      <option value="KDMC">
+       KDMC
+      </option>
+      <option value="BMC">
+       BMC
+      </option>
+      <option value="TMC">
+       TMC
+      </option>
+      <option value="OTHER">
+       Other
+      </option>
+     </select>
+     <label class="check-label">
+      <input id="mineOnly" type="checkbox"/>
+      My reports
+     </label>
+     <button class="btn outline small-btn" id="exportButton">
+      &darr; Export CSV
+     </button>
+    </div>
+    <div class="report-list" id="reportsContainer">
+    </div>
+   </section>
+   <section class="page hidden" id="tab-locations">
+    <div class="page-title">
+     <span class="eyebrow">
+      NEIGHBOURHOOD WATCH
+     </span>
+     <h1>
+      Reported locations
+     </h1>
+     <p>
+      Browse locations with active and resolved water or waste complaints.
+     </p>
+    </div>
+    <div class="location-summary" id="locationSummary">
+    </div>
+    <div class="location-list" id="mapContainer">
+    </div>
+   </section>
+   <section class="page hidden" id="tab-admin">
+    <div class="page-title">
+     <span class="eyebrow">
+      MANAGEMENT CONSOLE
+     </span>
+     <h1>
+      Admin dashboard
+     </h1>
+     <p>
+      Review reports and update their progress. This demo admin panel is not password-protected.
+     </p>
+    </div>
+    <div class="admin-stats stats-grid">
+     <article class="stat-card">
+      <span class="stat-icon water">
+       💧
+      </span>
+      <div>
+       <strong id="adminWater">
+        0
+       </strong>
+       <span>
+        Water reports
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon waste">
+       ♻️
+      </span>
+      <div>
+       <strong id="adminWaste">
+        0
+       </strong>
+       <span>
+        Waste reports
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon open">
+       ⏳
+      </span>
+      <div>
+       <strong id="adminOpen">
+        0
+       </strong>
+       <span>
+        Open issues
+       </span>
+      </div>
+     </article>
+     <article class="stat-card">
+      <span class="stat-icon done">
+       &checkmark;
+      </span>
+      <div>
+       <strong id="adminResolved">
+        0
+       </strong>
+       <span>
+        Resolved issues
+       </span>
+      </div>
+     </article>
+    </div>
+    <div class="panel estimate-panel">
+     <h3>
+      Resource impact estimate
+     </h3>
+     <div class="estimate-grid">
+      <div>
+       <strong id="savedLitres">
+        0 L
+       </strong>
+       <span>
+        Illustrative water saved
+       </span>
+      </div>
+      <div>
+       <strong id="wasteCount">
+        0
+       </strong>
+       <span>
+        Waste issues reported
+       </span>
+      </div>
+     </div>
+     <p class="hint">
+      Water estimate uses 500 litres per reported leakage hour as a demonstration assumption. It is not a measured saving. Waste reports are counted, not converted to kilograms.
+     </p>
+    </div>
+    <div class="section-heading">
+     <div>
+      <span class="eyebrow">
+       REVIEW QUEUE
+      </span>
+      <h2>
+       Manage reports
+      </h2>
+     </div>
+     <button class="btn danger small-btn" id="resetButton">
+      Reset demo data
+     </button>
+    </div>
+    <div class="report-list" id="adminContainer">
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="footer-brand">
+    ♻ EcoRakshak
+   </div>
+   <p>
+    Conserve water. Reduce waste. Build a cleaner tomorrow.
+   </p>
+   <small>
+    Student project prototype &bull; Data stored locally in this browser
+   </small>
+  </footer>
+  <div aria-live="polite" class="toast" id="toast" role="status">
+  </div>
+ </body>
+</html>
